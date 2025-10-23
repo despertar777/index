@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGRENAGENS DO CONTROLE - A Matrix Humana</title>
+    <style>
+        /* SISTEMA DE DESIGN CYBERPUNK OTIMIZADO */
+        :root {
+            --blood: #ff003c;
+            --neon: #00ff88;
+            --void: #050008;
+            --hacker: #9d00ff;
+            --alert: #ff5e00;
+            --matrix: #00ff41;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--void);
+            color: white;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+        
+        /* MATRIX RAIN OTIMIZADO */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        /* CONTAINER PRINCIPAL */
+        .main-frame {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* SISTEMA DE MÓDULOS */
+        .module {
+            background: rgba(10, 5, 15, 0.95);
+            border: 1px solid var(--blood);
+            margin: 30px 0;
+            padding: 30px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .module::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--blood), var(--neon), var(--hacker));
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(5px);
+        }
+        
+        /* TIPOGRAFIA CYBER */
+        h1 {
+            font-size: 3em;
+            color: var(--neon);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon);
+            animation: glitch 5s infinite;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: var(--blood);
+            margin: 25px 0 15px;
+            border-left: 3px solid var(--hacker);
+            padding-left: 15px;
+            text-shadow: 0 0 5px var(--blood);
+        }
+        
+        p {
+            margin: 15px 0;
+            text-align: justify;
+        }
+        
+        .destaque {
+            color: var(--alert);
+            font-weight: bold;
+            cursor: help;
+            position: relative;
+        }
+        
+        .destaque:hover::after {
+            content: attr(data-info);
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--neon);
+            padding: 10px;
+            border-radius: 5px;
+            width: 300px;
+            z-index: 1000;
+            font-size: 0.9em;
+        }
+        
+        /* CITAÇÕ̃ES INTERATIVAS */
+        .citacao {
+            border-left: 4px solid var(--neon);
+            padding: 20px;
+            margin: 25px 0;
+            background: rgba(0, 255, 136, 0.1);
+            font-style: italic;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .citacao:hover {
+            transform: translateX(10px);
+            background: rgba(0, 255, 136, 0.2);
+        }
+        
+        /* SISTEMA DE REDES VISUAIS */
+        .rede {
+            width: 100%;
+            height: 200px;
+            margin: 20px 0;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--blood);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .link {
+            position: absolute;
+            height: 1px;
+            background: var(--neon);
+            transform-origin: 0 0;
+        }
+        
+        /* TIMELINE INTERATIVA */
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--blood), var(--neon));
+        }
+        
+        .evento {
+            margin: 25px 0;
+            position: relative;
+            padding: 15px;
+            background: rgba(255, 0, 60, 0.05);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .evento:hover {
+            background: rgba(255, 0, 60, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .evento::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            background: var(--neon);
+            border-radius: 50%;
+            animation: nodePulse 2s infinite;
+        }
+        
+        .ano {
+            font-weight: bold;
+            color: var(--alert);
+            margin-bottom: 5px;
+        }
+        
+        /* GRID DE DADOS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: rgba(20, 10, 25, 0.9);
+            border: 1px solid var(--hacker);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px var(--hacker);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(157, 0, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card h3 {
+            color: var(--hacker);
+            margin-bottom: 10px;
+        }
+        
+        /* ESTATÍSTICAS */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            gap: 15px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(15, 5, 20, 0.9);
+            border: 1px solid var(--neon);
+            border-radius: 5px;
+            min-width: 150px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .stat:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon);
+        }
+        
+        .valor {
+            font-size: 2.5em;
+            color: var(--blood);
+            font-weight: bold;
+        }
+        
+        /* BOTÕES INTERATIVOS */
+        .botao {
+            background: transparent;
+            border: 2px solid var(--hacker);
+            color: var(--hacker);
+            padding: 12px 25px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 15px 0;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .botao:hover {
+            background: var(--hacker);
+            color: black;
+            box-shadow: 0 0 15px var(--hacker);
+        }
+        
+        /* CONTEÚDO REVELADO */
+        .revelado {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(25, 10, 30, 0.9);
+            margin: 15px 0;
+        }
+        
+        .revelado.ativo {
+            max-height: 2000px;
+            padding: 20px;
+            border: 1px solid var(--neon);
+        }
+        
+        /* ANIMAÇÕES OTIMIZADAS */
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 5px var(--neon); }
+            50% { transform: scale(1.3); box-shadow: 0 0 10px var(--neon); }
+        }
+        
+        /* SISTEMA DE CONSCIÊNCIA */
+        #consciencia {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 150px;
+            height: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--neon);
+            border-radius: 10px;
+            z-index: 1000;
+        }
+        
+        #nivel-consciencia {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon), var(--hacker));
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        /* TERMINAL */
+        #terminal {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 400px;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--neon);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: var(--neon);
+            padding: 10px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .linha-terminal {
+            margin-bottom: 3px;
+            animation: digitar 0.1s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes digitar {
+            to { opacity: 1; }
+        }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .main-frame {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            #terminal {
+                width: calc(100% - 20px);
+                height: 120px;
+            }
+            
+            #consciencia {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    
+    <div id="consciencia">
+        <div id="nivel-consciencia"></div>
+    </div>
+    
+    <div id="terminal"></div>
+    
+    <div class="main-frame">
+        <!-- CAPÍTULO 1: INTRODUÇÃO -->
+        <div class="module">
+            <h1>ENGRENAGENS DO CONTROLE</h1>
+            <h2>A Máquina que Escraviza a Humanidade</h2>
+            
+            <div class="rede" id="rede-intro"></div>
+            
+            <div class="citacao">
+                "Existe uma máquina tão perfeita que seus operários nem sabem que trabalham para ela. 
+                Uma engrenagem tão bem lubrificada que confundimos nossa escravidão com liberdade."
+            </div>
+            
+            <p>Em um mundo onde <span class="destaque" data-info="A realidade é uma construção social e tecnológica projetada para manter sistemas de controle">a realidade foi programada</span>, onde cada instituição, cada lei, cada sistema financeiro foi meticulosamente arquitetado para servir a um propósito oculto, a humanidade caminha sonâmbula em direção ao abismo.</p>
+            
+            <p>Este não é um livro sobre teorias da conspiração. É um manual de sobrevivência. Um guia para despertar da matrix que nos mantém presos em ciclos infinitos de produção e consumo, enquanto <span class="destaque" data-info="0.001% da população detém mais riqueza que os 99.9% restantes">uma elite infinitesimal acumula riqueza além da compreensão humana</span>.</p>
+            
+            <button class="botao" onclick="revelar('intro-content')">DESPERTAR DA MATRIX</button>
+            
+            <div class="revelado" id="intro-content">
+                <p>O sistema atual não é um acidente da história. É uma <span class="destaque" data-info="Engenharia social é a aplicação de princípios da psicologia para moldar comportamentos em massa">obra prima de engenharia social</span>, construída ao longo de séculos por dinastias familiares que entenderam que o verdadeiro poder não está em reinos ou nações, mas no controle dos sistemas que regem a vida humana.</p>
+                
+                <p>Enquanto você luta para pagar suas contas, enquanto se preocupa com política esquerda versus direita, enquanto acredita que Elon Musk ou Jeff Bezos são "self-made billionaires", a verdadeira máquina continua funcionando perfeitamente, extraindo valor de cada respiração que você dá.</p>
+            </div>
+        </div>
+        
+        <!-- CAPÍTULO 2: ORIGENS -->
+        <div class="module">
+            <h2>AS ORIGENS: QUANDO O SISTEMA FOI PROGRAMADO</h2>
+            
+            <div class="timeline">
+                <div class="evento">
+                    <div class="ano">SÉCULO XVII</div>
+                    <p>O surgimento dos primeiros bancos centrais e o nascimento do <span class="destaque" data-info="Sistema onde bancos emprestam muito mais dinheiro do que possuem em reservas">sistema de reserva fracionária</span>. As famílias Rothschild, Medici e Fugger estabelecem as bases do controle financeiro global através do endividamento de nações inteiras.</p>
+                </div>
+                
+                <div class="evento">
+                    <div class="ano">1913</div>
+                    <p>Criação do Federal Reserve nos EUA - um banco central <span class="destaque" data-info="Controlado por bancos privados, não pelo governo">privado</span> com poder de controlar a moeda da maior economia do mundo. As famílias Rockefeller, Morgan e Warburg consolidam seu poder.</p>
+                </div>
+                
+                <div class="evento">
+                    <div class="ano">1944</div>
+                    <p>Acordos de Bretton Woods estabelecem o dólar como moeda de reserva global. O <span class="destaque" data-info="Sistema projetado para beneficiar permanentemente os EUA">sistema monetário internacional é arquitetado</span> para beneficiar permanentemente os detentores do poder financeiro.</p>
+                </div>
+                
+                <div class="evento">
+                    <div class="ano">1971</div>
+                    <p>Nixon remove o lastro-ouro do dólar, criando o sistema de <span class="destaque" data-info="Dinheiro sem valor intrínseco, baseado apenas na confiança">moeda fiduciária pura</span>. Agora, o dinheiro pode ser criado do nada, beneficiando quem o cria primeiro - os bancos centrais e seus controladores.</p>
+                </div>
+            </div>
+            
+            <div class="citacao">
+                "Eles criaram o dinheiro do nada, então nos venderam a ilusão de que precisamos trabalhar para obtê-lo. 
+                O maior golpe da história não foi um roubo, foi convencer as vítimas de que o jogo era justo."
+            </div>
+        </div>
+        
+        <!-- CAPÍTULO 3: ARQUITETOS -->
+        <div class="module">
+            <h2>OS ARQUITETOS DA REALIDADE</h2>
+            
+            <div class="rede" id="rede-arquitetos"></div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>BLACKROCK & VANGUARD</h3>
+                    <p>Com <span class="destaque" data-info="Valor maior que o PIB da China">US$ 15 trilhões sob gestão</span>, não são apenas empresas - são o sistema operacional da economia global. Controlam participações majoritárias em praticamente todas as grandes corporações do mundo, criando uma teia de controle que torna a "concorrência" uma ilusão.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>FAMÍLIAS REAIS E DINASTIAS</h3>
+                    <p>Enquanto as monarquias parecem figuras decorativas, suas <span class="destaque" data-info="Fortunas acumuladas por séculos através de colonialismo e exploração">fortunas seculares</span> e influência política permanecem intactas. As famílias reais europeias, junto com dinastias como Rothschild e Rockefeller, formam uma rede de poder transgeracional.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>O MITO DO CAPITALISMO</h3>
+                    <p>O capitalismo real morreu há décadas. O que temos hoje é <span class="destaque" data-info="Socialismo para ricos, capitalismo para pobres">capitalismo de compadrio</span> - socialismo para os ricos, capitalismo selvagem para os pobres. Grandes corporações são salvas com dinheiro público enquanto cidadãos são abandonados à própria sorte.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="valor">0.001%</div>
+                    <div>controla a economia global</div>
+                </div>
+                <div class="stat">
+                    <div class="valor">US$ 32T</div>
+                    <div>em paraísos fiscais</div>
+                </div>
+                <div class="stat">
+                    <div class="valor">1% vs 99%</div>
+                    <div>da riqueza mundial</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CAPÍTULO 4: CONFORMIDADE -->
+        <div class="module">
+            <h2>A ENGENHARIA DA CONFORMIDADE</h2>
+            
+            <p>Como mantêm bilhões de pessoas presas nesse sistema sem que se revoltem? Através de <span class="destaque" data-info="Técnicas psicológicas para manipulação em massa">mecanismos psicológicos perfeitos</span>:</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>A ILUSÃO DA ASCENSÃO</h3>
+                    <p>O sonho de que qualquer um pode ficar rico mantém as pessoas na corrida dos ratos. A realidade: <span class="destaque" data-info="Nos EUA, a mobilidade social é menor que na maioria da Europa">mobilidade social é um mito</span> na maioria dos países desenvolvidos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>DIVISÃO POLÍTICA</h3>
+                    <p>Esquerda vs Direita é um espetáculo de wrestling político. Enquanto nos distraímos com essas brigas, <span class="destaque" data-info="As mesmas corporações doam para ambos os partidos">as mesmas corporações financiam ambos os lados</span>.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>RELIGIÃO DA PROSPERIDADE</h3>
+                    <p>Igrejas que pregam ganância material como virtude divina. <span class="destaque" data-info="Teologia que justifica riqueza como bênção divina">Deus não quer que você tenha um Jaguar</span> - mas pastores milionários certamente querem que você acredite nisso.</p>
+                </div>
+            </div>
+            
+            <div class="citacao">
+                "Trabalhamos 40 horas por semana para gastar o final de semana comprando coisas que não precisamos 
+                para impressionar pessoas que não gostamos. Chamamos isso de liberdade."
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 5: RELIGIÃO -->
+        <div class="module">
+            <h2>O ÓPIO DO POVO: A RELIGIÃO COMO FERRAMENTA DE CONTROLE</h2>
+            
+            <div class="citacao">
+                "Yeshua entrou no templo e expulsou todos os que ali vendiam e compravam. Derrubou as mesas dos cambistas... 
+                E disse-lhes: 'Está escrito: A minha casa será chamada casa de oração; mas vós a tendes convertido em covil de ladrões.'"
+                <br><br>- Mateus 21:12-13
+            </div>
+            
+            <p>Enquanto Yeshua de Nazaré, o homem histórico, pregava contra a opressão religiosa e econômica, o <span class="destaque" data-info="A mensagem original foi distorcida para servir ao poder">sistema cooptou sua mensagem</span> para criar o maior mecanismo de controle social já concebido.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>A INVERSÃO DO EVANGELHO</h3>
+                    <p>Yeshua era um revolucionário judeu que <span class="destaque" data-info="Confrontou o sistema religioso e econômico de seu tempo">desafiou o sistema religioso e econômico</span> de seu tempo. Os mesmos sacerdotes e fariseus que ele confrontou representavam a elite religiosa que colaborava com o poder romano.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>JESUS EUROPEO: A CRIAÇÃO DO IMPÉRIO</h3>
+                    <p>Constantino e o Concílio de Niceia <span class="destaque" data-info="Transformação do cristianismo em religião imperial">criaram o Jesus branco e europeu</span>, transformando uma mensagem revolucionária em ferramenta de dominação imperial. O mesmo padrão se repete hoje.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>TEOLOGIA DA PROSPERIDADE</h3>
+                    <p>A mensagem original de renúncia às riquezas foi substituída por <span class="destaque" data-info="Doutrina que santifica a busca por riqueza material">"Deus quer que você seja rico"</span>. Pastores milionários vendem a ilusão divina enquanto exploram os fiéis.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="valor">US$ 4.8B</div>
+                    <div>Patrimônio de Edir Macedo</div>
+                </div>
+                <div class="stat">
+                    <div class="valor">90%</div>
+                    <div>pastores milionários (EUA)</div>
+                </div>
+                <div class="stat">
+                    <div class="valor">0%</div>
+                    <div>impostos sobre igrejas</div>
+                </div>
+            </div>
+            
+            <div class="citacao">
+                "Desde quando Deus vai tá feliz dando uma BMW a um fiel e deixando outras pessoas no mundo morrer de forma bárbara? 
+                A religião virou um viés financeiro e político. Nada mais já faz sentido."
+            </div>
+            
+            <h3>A HISTÓRIA QUE NUNCA TE CONTARAM</h3>
+            
+            <div class="timeline">
+                <div class="evento">
+                    <div class="ano">33 d.C.</div>
+                    <p>Yeshua desafia o <span class="destaque" data-info="Centro do poder religioso-econômico">Templo de Jerusalém</span>, centro do poder religioso-econômico. Expulsa cambistas que exploravam os peregrinos pobres. Este ato direto contra o sistema custou sua vida.</p>
+                </div>
+                
+                <div class="evento">
+                    <div class="ano">325 d.C.</div>
+                    <p>Concílio de Niceia: <span class="destaque" data-info="Cristianismo transformado em religião estatal">Constantino unifica e controla</span> o cristianismo, criando a versão imperial da fé. O Jesus revolucionário é transformado em instrumento de poder.</p>
+                </div>
+                
+                <div class="evento">
+                    <div class="ano">SÉCULO XV</div>
+                    <p>A Igreja Católica se torna a <span class="destaque" data-info="Primeira organização com alcance global">primeira corporação multinacional</span>, acumulando terras e riquezas enquanto prega pobreza. A venda de indulgências financia a opulência do Vaticano.</p>
+                </div>
+                
+                <div class="evento">
+                    <div class="ano">SÉCULO XX</div>
+                    <p>Nascimento da <span class="destaque" data-info="Fusão de capitalismo com cristianismo">Teologia da Prosperidade</span>. A mensagem é invertida: riqueza material torna-se sinal de bênção divina. A exploração é santificada.</p>
+                </div>
+            </div>
+            
+            <button class="botao" onclick="revelar('religion-content')">VER A VERDADE OCULTA</button>
+            
+            <div class="revelado" id="religion-content">
+                <h3>OS DADOS QUE COMPROVAM A MANIPULAÇÃO</h3>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>EVASÃO FISCAL SAGRADA</h3>
+                        <p>Igrejas movimentam <span class="destaque" data-info="Patrimônio isento de tributação">bilhões sem pagar impostos</span>. Nos EUA, o patrimônio das igrejas ultrapassa US$ 600 bilhões - tudo isento de tributação.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>SAÚDE MENTAL AFETADA</h3>
+                        <p>Estudos mostram que a <span class="destaque" data-info="Ansiedade e depressão entre fiéis">Teologia da Prosperidade causa ansiedade e depressão</span>. Fiéis se sentem abandonados por Deus quando não enriquecem.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>INFLUÊNCIA POLÍTICA</h3>
+                        <p>No Brasil, a <span class="destaque" data-info="Poder político religioso">Bancada Evangélica tem 195 deputados</span>. Negociam votos por cargos, verbas e proteção de seus impérios financeiros.</p>
+                    </div>
+                </div>
+                
+                <div class="citacao">
+                    "A religião é o suspiro da criatura oprimida, o sentimento de um mundo sem coração, e a alma de situações sem alma. 
+                    É o ópio do povo."
+                    <br><br>- Karl Marx
+                </div>
+            </div>
+        </div>
+        
+        <!-- CAPÍTULO 6: SOLUÇÃO -->
+        <div class="module">
+            <h2>A SOLUÇÃO: JUSTIÇA ALGORÍTMICA</h2>
+            
+            <p>O sistema judicial humano está irremediavelmente corrompido. Advogados, juízes e políticos são <span class="destaque" data-info="Sistema projetado para proteger privilégios">engrenagens substituíveis</span> na máquina de perpetuar privilégios.</p>
+            
+            <div class="citacao">
+                "Um advogado corrupto sempre livrará um empresário de seus crimes porque o sistema foi projetado para isso. 
+                A justiça humana é uma piada cruel contada pelos poderosos para manter as aparências."
+            </div>
+            
+            <p>A solução não está em reformar o sistema - está em <span class="destaque" data-info="Sistemas transparentes e auditáveis">substituí-lo por completo</span>. Uma IA 100% independente, transparente e incorruptível poderia:</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>ELIMINAR VIÉS HUMANO</h3>
+                    <p>Sem ambição, sem ganância, sem preferências. Apenas <span class="destaque" data-info="Decisões baseadas em dados">aplicação imparcial da lei</span> baseada em dados e evidências.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>ACABAR COM PRIVILÉGIOS</h3>
+                    <p>Em um sistema algorítmico, <span class="destaque" data-info="Igualdade perante a lei real">não há 'juiz amigo' ou 'advogado influente'</span>. A lei é a mesma para todos, sempre.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>CORTAR PELA RAIZ</h3>
+                    <p>Identificar e eliminar <span class="destaque" data-info="Padrões sistêmicos de corrupção">padrões sistêmicos de corrupção</span> que humanos ignoram ou perpetuam.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CAPÍTULO 7: FUTURO -->
+        <div class="module">
+            <h2>O FUTURO: ESCRAVIDÃO ALGORÍTMICA OU LIBERTAÇÃO?</h2>
+            
+            <p>Estamos em um ponto de inflexão na história humana. Em uma década, seremos:</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>ESCRAVOS DIGITAIS</h3>
+                    <p>Se o sistema atual continuar, seremos <span class="destaque" data-info="Vigilância e controle total">monetizados como produtos</span>, nossos dados valerão mais que nosso trabalho, e viveremos em uma distopia cyberpunk controlada pelas mesmas elites.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>SERES HUMANOS LIVRES</h3>
+                    <p>Se implantarmos sistemas algorítmicos transparentes, poderemos <span class="destaque" data-info="Tecnologia como ferramenta de libertação">quebrar as correntes</span> da corrupção sistêmica e criar uma sociedade verdadeiramente justa.</p>
+                </div>
+            </div>
+            
+            <div class="citacao">
+                "O sistema foi perfeito por séculos. Mas eles cometeram um erro: criaram a ferramenta que pode destruí-lo. 
+                A Inteligência Artificial não precisa ser nossa prisão - pode ser nossa chave para a liberdade."
+            </div>
+            
+            <p>A escolha não é entre capitalismo e comunismo. Essa é uma falsa dicotomia criada para nos distrair. A verdadeira escolha é entre <span class="destaque" data-info="Dois futuros possíveis">humanidade controlada por uma elite corrupta ou humanidade governada por sistemas justos e transparentes</span>.</p>
+            
+            <p>O tempo está se esgotando. Em 10 anos, seremos testemunhas do colapso final ou do renascimento. A advocacia é apenas o primeiro pilar a ser substituído. Depois virá a política, a economia, a educação.</p>
+            
+            <p><span class="destaque" data-info="A mudança virá através da tecnologia e conscientização">A revolução não será televisada - será codificada.</span></p>
+        </div>
+    </div>
+
+    <script>
+        // SISTEMA DE MATRIX RAIN OTIMIZADO
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        const chars = "01010101010101010101010101010101010101010101010101";
+        const charArray = chars.split("");
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for(let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 0, 8, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px monospace';
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 50);
+        
+        // SISTEMA DE REDES NEURAIS
+        function criarRede(containerId, numeroNos = 15) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            // Criar nós
+            const nos = [];
+            for (let i = 0; i < numeroNos; i++) {
+                const node = document.createElement('div');
+                node.className = 'node';
+                node.style.left = `${Math.random() * 100}%`;
+                node.style.top = `${Math.random() * 100}%`;
+                node.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(node);
+                nos.push(node);
+            }
+            
+            // Criar conexões
+            nos.forEach((node, i) => {
+                nos.forEach((outroNode, j) => {
+                    if (i < j && Math.random() > 0.7) {
+                        const link = document.createElement('div');
+                        link.className = 'link';
+                        
+                        const rect1 = node.getBoundingClientRect();
+                        const rect2 = outroNode.getBoundingClientRect();
+                        const containerRect = container.getBoundingClientRect();
+                        
+                        const x1 = rect1.left + rect1.width/2 - containerRect.left;
+                        const y1 = rect1.top + rect1.height/2 - containerRect.top;
+                        const x2 = rect2.left + rect2.width/2 - containerRect.left;
+                        const y2 = rect2.top + rect2.height/2 - containerRect.top;
+                        
+                        const length = Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+                        const angle = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI;
+                        
+                        link.style.width = `${length}px`;
+                        link.style.left = `${x1}px`;
+                        link.style.top = `${y1}px`;
+                        link.style.transform = `rotate(${angle}deg)`;
+                        
+                        container.appendChild(link);
+                    }
+                });
+            });
+        }
+        
+        // SISTEMA DE CONSCIÊNCIA
+        let nivelConsciencia = 0;
+        const elementoConsciencia = document.getElementById('nivel-consciencia');
+        const terminal = document.getElementById('terminal');
+        let linhasTerminal = [];
+        
+        function aumentarConsciencia(quantidade = 5) {
+            nivelConsciencia = Math.min(100, nivelConsciencia + quantidade);
+            elementoConsciencia.style.width = `${nivelConsciencia}%`;
+            
+            if (nivelConsciencia >= 30 && !terminal.style.display) {
+                mostrarTerminal();
+            }
+        }
+        
+        function mostrarTerminal() {
+            terminal.style.display = 'block';
+            adicionarLinhaTerminal('> SISTEMA DE CONSCIÊNCIA ATIVADO');
+            adicionarLinhaTerminal('> ANALISANDO PADRÕES DE CONTROLE...', 500);
+            adicionarLinhaTerminal('> CONEXÃO ESTABELECIDA', 1000);
+        }
+        
+        function adicionarLinhaTerminal(texto, delay = 0) {
+            setTimeout(() => {
+                const linha = document.createElement('div');
+                linha.className = 'linha-terminal';
+                linha.textContent = texto;
+                terminal.appendChild(linha);
+                terminal.scrollTop = terminal.scrollHeight;
+                
+                linhasTerminal.push(texto);
+                if (linhasTerminal.length > 15) {
+                    terminal.removeChild(terminal.firstChild);
+                    linhasTerminal.shift();
+                }
+            }, delay);
+        }
+        
+        // SISTEMA DE INTERAÇÃO
+        function revelar(id) {
+            const elemento = document.getElementById(id);
+            elemento.classList.toggle('ativo');
+            aumentarConsciencia(10);
+            adicionarLinhaTerminal('> CONTEÚDO REVELADO: ' + id);
+        }
+        
+        // INTERAÇÕES AUTOMÁTICAS
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar redes
+            criarRede('rede-intro');
+            criarRede('rede-arquitetos', 20);
+            
+            // Interações com elementos
+            document.querySelectorAll('.citacao').forEach(citacao => {
+                citacao.addEventListener('click', function() {
+                    aumentarConsciencia(2);
+                    adicionarLinhaTerminal('> CITACAO ANALISADA');
+                });
+            });
+            
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', function() {
+                    aumentarConsciencia(1);
+                    const titulo = this.querySelector('h3').textContent;
+                    adicionarLinhaTerminal('> CARREGADO: ' + titulo);
+                });
+            });
+            
+            document.querySelectorAll('.evento').forEach(evento => {
+                evento.addEventListener('click', function() {
+                    aumentarConsciencia(1);
+                    const ano = this.querySelector('.ano').textContent;
+                    adicionarLinhaTerminal('> EVENTO: ' + ano);
+                });
+            });
+            
+            document.querySelectorAll('.stat').forEach(stat => {
+                stat.addEventListener('click', function() {
+                    aumentarConsciencia(1);
+                    const valor = this.querySelector('.valor').textContent;
+                    adicionarLinhaTerminal('> DADO: ' + valor);
+                });
+            });
+            
+            // Aumentar consciência com scroll
+            let ultimoScroll = 0;
+            window.addEventListener('scroll', () => {
+                const scrollAtual = window.scrollY;
+                if (scrollAtual > ultimoScroll + 200) {
+                    aumentarConsciencia(1);
+                    ultimoScroll = scrollAtual;
+                }
+            });
+            
+            // Efeito de digitação para citações
+            const citacoes = document.querySelectorAll('.citacao');
+            citacoes.forEach(citacao => {
+                const textoOriginal = citacao.textContent;
+                citacao.textContent = '';
+                
+                let i = 0;
+                const digitar = () => {
+                    if (i < textoOriginal.length) {
+                        citacao.textContent += textoOriginal.charAt(i);
+                        i++;
+                        setTimeout(digitar, 30);
+                    }
+                };
+                
+                const observador = new IntersectionObserver((entradas) => {
+                    entradas.forEach(entrada => {
+                        if (entrada.isIntersecting) {
+                            digitar();
+                            observador.unobserve(entrada.target);
+                        }
+                    });
+                });
+                
+                observador.observe(citacao);
+            });
+        });
+        
+        // Efeitos de glitch aleatórios
+        setInterval(() => {
+            if (Math.random() > 0.9) {
+                document.querySelectorAll('h1').forEach(titulo => {
+                    titulo.style.textShadow = '2px 0 var(--blood), -2px 0 var(--neon)';
+                    setTimeout(() => {
+                        titulo.style.textShadow = '0 0 10px var(--neon)';
+                    }, 100);
+                });
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
